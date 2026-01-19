@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import "../assets/styles/scores.css"
-import { Link } from "react-router-dom";
 import "../assets/styles/Scores.css"
+import { Link } from "react-router-dom";
 
 export default function Scores() {
   const [scores, setScores] = useState<Record<string, number>>({});
