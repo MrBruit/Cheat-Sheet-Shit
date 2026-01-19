@@ -1,5 +1,6 @@
 .quiz-container {
-  width: 40vw;
+  width: 90%;
+  max-width: 700px;
   margin: 2rem auto;
   padding: 2rem;
   background: #0A192F;
@@ -67,10 +68,13 @@
   transition: width 0.3s ease;
 }
 
-@media (max-width: 452px) { 
-  .quiz-container, .home-container, .quiz-inner { 
-    max-width: 100%; 
-    width: 100%; 
-    padding: 1rem; 
-  } 
+@media (max-width: 768px) {
+  .quiz-container {
+    width: 95%;
+    padding: 1.5rem;
+  }
+  
+  .quiz-question {
+    font-size: 1.1rem;
+  }
 }
