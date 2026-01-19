@@ -1,8 +1,8 @@
 .quiz-container {
-  width: 90%;
+  width: 95%;
   max-width: 700px;
-  margin: 2rem auto;
-  padding: 2rem;
+  margin: 1rem auto;
+  padding: 2rem 1rem;
   background: #0A192F;
   color: #F5F5F5;
   border-radius: 12px;
@@ -13,6 +13,7 @@
 .quiz-container h1 {
   color: #61DAFB;
   margin-bottom: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .quiz-container ul {
@@ -23,11 +24,11 @@
 
 .quiz-container li {
   background: rgba(255, 255, 255, 0.05);
-  margin: 0.6rem 0;
-  padding: 0.8rem;
+  margin: 0.8rem 0;
+  padding: 1rem;
   border-left: 4px solid #FF8C42;
   border-radius: 6px;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .quiz-container strong {
@@ -38,6 +39,7 @@
   margin-top: 2rem;
   color: #FF8C42;
   font-weight: bold;
+  font-size: 1.2rem;
 }
 
 .back-button {
@@ -59,7 +61,7 @@
 
 .reset-button {
   margin-top: 1.5rem;
-  padding: 0.7rem 1.2rem;
+  padding: 0.8rem 1.5rem;
   background: #FF8C42;
   color: #0A192F;
   font-weight: bold;
@@ -67,6 +69,7 @@
   border-radius: 8px;
   cursor: pointer;
   transition: 0.2s ease;
+  font-size: 1rem;
 }
 
 .reset-button:hover {
@@ -76,7 +79,12 @@
 
 @media (max-width: 768px) {
   .quiz-container {
-    width: 95%;
-    padding: 1.5rem;
+    width: 98%;
+    padding: 1.5rem 1rem;
+    margin: 0.5rem auto;
+  }
+  
+  .quiz-container h1 {
+    font-size: 1.3rem;
   }
 }
