@@ -6,7 +6,7 @@ export default function Home() {
     <div className="home-container">
       <h1>CHEAT SHEET SHIT</h1>
 
-      <h2>Choisis un quiz</h2>
+      <h2>Choisis un quiz :</h2>
       <ul>
         <li><Link to="/quiz/react">Quiz React</Link></li>
         <li><Link to="/quiz/javascript">Quiz JavaScript</Link></li>
