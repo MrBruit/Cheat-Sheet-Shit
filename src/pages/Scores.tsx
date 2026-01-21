@@ -1,32 +1,34 @@
 import { useEffect, useState } from "react";
-import "../assets/styles/Scores.css"
+import "../assets/styles/Scores.css";
 import { Link } from "react-router-dom";
+import { doomQuest } from "../data/DoomQuest";
 
 export default function Scores() {
   const [scores, setScores] = useState<Record<string, number>>({});
   const [average, setAverage] = useState<number | null>(null);
+  const doomScore = Number(localStorage.getItem("doomScore") || "0");
 
   useEffect(() => {
-  const stored: Record<string, number> = JSON.parse(localStorage.getItem("scores") || "{}");
-  setScores(stored);
+    const stored: Record<string, number> = JSON.parse(localStorage.getItem("scores") || "{}");
+    setScores(stored);
 
-  const values = Object.values(stored).filter(v => typeof v === "number" && !isNaN(v));
+    const values = Object.values(stored).filter(v => typeof v === "number" && !isNaN(v));
 
-  if (values.length > 0) {
-    const avg = values.reduce((a, b) => a + b, 0) / values.length;
-    setAverage(avg);
-  }
-}, []);
+    if (values.length > 0) {
+      const avg = values.reduce((a, b) => a + b, 0) / values.length;
+      setAverage(avg);
+    }
+  }, []);
    
-function resetScores() {
-  localStorage.removeItem("scores");
-  setScores({});
-  setAverage(null);
-}
+  function resetScores() {
+    localStorage.removeItem("scores");
+    setScores({});
+    setAverage(null);
+  }
 
   return (
-    <div  className="quiz-container">
-      <Link to="/" className="back-button">← Retour</Link>
+    <div className="quiz-container">
+      <Link to="/" className="back-button">Retour</Link>
       <h1>Meilleurs scores</h1>
 
       <ul>
@@ -40,7 +42,17 @@ function resetScores() {
       {average !== null && (
         <h2>Moyenne générale : {average.toFixed(2)}/40</h2>
       )}
-      <button className="reset-button" onClick={resetScores}> Réinitialiser les scores </button>
+
+      {average !== null && average >= 35 && (
+        <>
+        <Link to="/doom" className="doom-button">Lancer le DOOM Quiz</Link>
+        <h2>Score DOOM : {doomScore}/{doomQuest.length}</h2>
+        </>
+      )}
+      
+      <button className="reset-button" onClick={resetScores}>
+        Réinitialiser les scores
+      </button>
     </div>
   );
 }
